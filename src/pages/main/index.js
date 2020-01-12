@@ -5,34 +5,34 @@ import './styles.css';
 
 export default class Main extends Component {
     state = {
-      products: []  
+      series: []  
     };
 
     componentDidMount() {
-      this.loadProducts();
+      this.loadSeries();
     }
 
-    loadProducts = async () => {
+    loadSeries = async () => {
       const response = await api.get(`/search/shows?q=girls`);
 
-      this.setState({ products: response.data });
+      this.setState({ series: response.data });
     };
 
     render() {
-      const { products } = this.state;
+      const { series } = this.state;
 
     return (
-      <div className="product-list">
-        {products.map(product => (
-          <div key={product.show.id}>
+      <div className="serie-list">
+        {series.map(serie => (
+          <div key={serie.show.id}>
 
-            <div className="product-card">
-              <img src={product.show.image.medium} alt="Poster" />
+            <div className="serie-card">
+              <img src={serie.show.image.medium} alt="Poster" />
 
-              <div className="product-info">
-                <strong>{product.show.name}</strong>
-                <p>Gênero: {product.show.genres}</p>
-                <Link to={`products/${product.show.id}`}>Saiba mais</Link>
+              <div className="serie-info">
+                <strong>{serie.show.name}</strong>
+                <p>Gênero: {serie.show.genres[0]}  {serie.show.genres[1]}  {serie.show.genres[2]}</p>
+                <Link to={`series/${serie.show.id}`}>Saiba mais</Link>
               </div>
             </div>
 

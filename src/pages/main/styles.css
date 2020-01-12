@@ -1,10 +1,10 @@
-.product-list {
+.serie-list {
     max-width: 700px;
     margin: 20px auto 0;
     padding: 0 20px;
 }
 
-.product-card {
+.serie-card {
     display: flex;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -13,11 +13,11 @@
     margin-bottom: 20px;
 }
 
-.product-info {
+.serie-info {
     margin-left: 20px;
 }
 
-.product-info p {
+.serie-info p {
     font-size: 16px;
     color: rgb(123, 123, 123);
     margin-top: 5px;
@@ -41,7 +41,7 @@
     transition: all 0.2s;
 }
 
-.product-info a:hover {
+.serie-info a:hover {
     background: #00A5DB;
     color: #fff;
 }
