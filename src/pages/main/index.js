@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from "../../services/api";
+import './styles.css';
 
 export default class Main extends Component {
     state = {
@@ -19,14 +20,19 @@ export default class Main extends Component {
     };
 
     render() {
+        const { products } = this.state;
+
         return (
             <div className="product-list">
-                {this.state.products.map(product => (
-                    <h2 key={product.score}>{product.show.name}</h2>
-                ))}
+                {products.map(product => (
+                    <article key={product.score}>
+                        <strong>{product.show.name}</strong>
+                        <p>{product.show.genres}</p>
 
-                {this.state.products.map(product => (
-                    <h2 key={product.score}>{product.show.genres}</h2>
+                        <img src="{product.show.image.original}" alt="Poster do filme"></img>
+
+                        <a href="">Saiba mais</a>
+                    </article>
                 ))}
 
                 {/* {this.state.products.map(product => (
