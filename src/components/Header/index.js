@@ -5,5 +5,4 @@ const Header = () => (
     <header id="main-header">Confira essa lista de séries!</header>
 );
 
-
 export default Header;

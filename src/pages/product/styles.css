@@ -1,0 +1,26 @@
+.list {
+    max-width: 700px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.info {
+    display: flex;
+    margin-left: 20px;
+}
+
+.details {
+    margin-left: 20px;
+}
+
+.info p {
+    font-size: 16px;
+    color: rgb(123, 123, 123);
+    margin-top: 5px;
+    line-height: 24px;
+}

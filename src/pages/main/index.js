@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import api from "../../services/api";
+import api from '../../services/api';
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 export default class Main extends Component {
@@ -8,37 +9,36 @@ export default class Main extends Component {
     };
 
     componentDidMount() {
-        this.loadProducts();
+      this.loadProducts();
     }
 
     loadProducts = async () => {
-        const response = await api.get(`/search/shows?q=girls`);
+      const response = await api.get(`/search/shows?q=girls`);
 
-        console.log(response.data);
-
-        this.setState({ products: response.data });
+      this.setState({ products: response.data });
     };
 
     render() {
-        const { products } = this.state;
+      const { products } = this.state;
 
-        return (
-            <div className="product-list">
-                {products.map(product => (
-                    <article key={product.score}>
-                        <strong>{product.show.name}</strong>
-                        <p>{product.show.genres}</p>
+    return (
+      <div className="product-list">
+        {products.map(product => (
+          <div key={product.show.id}>
 
-                        <img src="{product.show.image.original}" alt="Poster do filme"></img>
+            <div className="product-card">
+              <img src={product.show.image.medium} alt="Poster" />
 
-                        <a href="">Saiba mais</a>
-                    </article>
-                ))}
-
-                {/* {this.state.products.map(product => (
-                    <img key={product.score}>{product.show.image.original}</img>
-                ))} */}
+              <div className="product-info">
+                <strong>{product.show.name}</strong>
+                <p>Gênero: {product.show.genres}</p>
+                <Link to={`products/${product.show.id}`}>Saiba mais</Link>
+              </div>
             </div>
-        );
-    }
+
+          </div>
+        ))}
+      </div>
+    );
+  }
 }
